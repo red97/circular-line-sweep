@@ -65,7 +65,7 @@ public class circular_sweep
 
 		// taking input of all the lines
 		int kx = 0;
-		HashMap<line, line> line_map = new HashMap<line, line>();
+		HashMap<line, Integer> line_map = new HashMap<line, Integer>();
 		System.out.print("Enter the number of lines : ");
 		int n = sc.nextInt();
 		System.out.println("Enter the lines as x1 y1 x2 y2 :-");
@@ -85,7 +85,7 @@ public class circular_sweep
 				s.add(l1);
 				pq.add(p1);
 				pq.add(p2);
-				line_map.put(l1, l1);
+				line_map.put(l1, i);
 				kx++;
 			} 
 			else if ((qd(a1, 1) && qd(a2, 4)) || (qd(a1, 2) && qd(a2, 3)) || (qd(a1, 4) && qd(a2, 1))|| (qd(a1, 3) && qd(a2, 2)))
@@ -104,7 +104,7 @@ public class circular_sweep
 				s.add(l11);
 				pq.add(p1);
 				pq.add(tmp_point);
-				line_map.put(l11, l1);
+				line_map.put(l11, i);
 				kx++;
 
 				tmp_point = new point(x, y, kx);
@@ -118,7 +118,7 @@ public class circular_sweep
 				s.add(l12);
 				pq.add(p2);
 				pq.add(tmp_point);
-				line_map.put(l12, l1);
+				line_map.put(l12, i);
 				kx++;
 
 			} 
@@ -133,7 +133,7 @@ public class circular_sweep
 				s.add(l11);
 				pq.add(p1);
 				pq.add(tmp_point);
-				line_map.put(l11, l1);
+				line_map.put(l11, i);
 				kx++;
 
 				tmp_point = new point(x, y, kx);
@@ -142,7 +142,7 @@ public class circular_sweep
 				s.add(l12);
 				pq.add(p2);
 				pq.add(tmp_point);
-				line_map.put(l12, l1);
+				line_map.put(l12, i);
 				kx++;
 
 			} 
@@ -208,9 +208,9 @@ public class circular_sweep
 				pq.add(p21);
 				pq.add(p22);
 				pq.add(p2);
-				line_map.put(tmp_line1, l1);
-				line_map.put(tmp_line2, l1);
-				line_map.put(tmp_line3, l1);
+				line_map.put(tmp_line1, i);
+				line_map.put(tmp_line2, i);
+				line_map.put(tmp_line3, i);
 				kx += 3;
 
 			}
@@ -264,7 +264,7 @@ public class circular_sweep
 		HashMap<Integer, Integer> r_map = new HashMap<Integer, Integer>();
 		for(int i=0;i<tp;i++)
 		{
-			int val = line_map.get(vl.get(i)).ix;
+			int val = line_map.get(vl.get(i));
 			if(!r_map.containsKey(val))
 			{
 				System.out.println("line "+val);
